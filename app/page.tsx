@@ -182,9 +182,8 @@ export default function Home() {
       {/* SERVICES SECTION */}
       <section id="services" className="py-28 bg-black border-t-2 border-gold">
         <div className="container mx-auto px-4">
-          <h2 className="font-satoshi text-2xl md:text-4xl font-extrabold text-gold text-center mb-2 tracking-tight">What We Offer</h2>
-          <div className="w-16 h-1 bg-gold mx-auto mb-10 rounded-full" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-5xl mx-auto">
+          <h2 className="font-satoshi text-2xl font-semibold text-white text-center mb-8">What We Offer</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               {
                 icon: <Settings className="w-12 h-12 text-gold" strokeWidth={2.5} />, title: "Workflow Automation", desc: "Streamline your operations with intelligent automation solutions tailored to your business." },
@@ -197,7 +196,7 @@ export default function Home() {
             ].map((s, i) => (
               <motion.div
                 key={s.title}
-                className="bg-black border-2 border-gold rounded-2xl p-10 flex flex-col items-center shadow-2xl hover:scale-105 hover:shadow-gold/30 transition-all group"
+                className="bg-[#111111] rounded-2xl p-6 border-[2.5px] border-gold flex flex-col items-center"
                 style={{ borderColor: '#D4AF37' }}
                 initial="hidden"
                 whileInView="visible"
@@ -205,9 +204,13 @@ export default function Home() {
                 variants={serviceVariants}
                 custom={i}
               >
-                {React.cloneElement(s.icon, { className: 'w-14 h-14 text-gold' })}
-                <h3 className="font-satoshi text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight group-hover:text-gold transition-colors text-center">{s.title}</h3>
-                <p className="text-white/80 text-lg md:text-xl font-medium text-center group-hover:text-gold/90 transition-colors">{s.desc}</p>
+                {React.cloneElement(s.icon, {
+                  className: 'h-8 w-8 text-gold mb-4',
+                  style: { color: '#D4AF37' },
+                  stroke: 'currentColor',
+                })}
+                <h3 className="font-satoshi text-lg font-bold text-white text-center">{s.title}</h3>
+                <p className="font-inter text-sm text-gray-300 text-center">{s.desc}</p>
               </motion.div>
             ))}
           </div>
