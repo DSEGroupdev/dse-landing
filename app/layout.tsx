@@ -23,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/dse-logo.png" type="image/png" />
+      </head>
       <body className={`${inter.variable} font-inter antialiased bg-white text-black`}>
         {children}
         <Footer />
