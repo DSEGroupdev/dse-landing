@@ -1,7 +1,6 @@
 'use client';
 
-import React from "react";
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import AnimatedBackground from './components/AnimatedBackground';
@@ -81,6 +80,15 @@ function MobileNav({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => 
 export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
+
+  // Duration constants (sync with hero animation delays)
+  const INTRO_DURATION = 3400; // ms, matches the delay before hero text animates in
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), INTRO_DURATION);
+    return () => clearTimeout(timer);
+  }, []);
 
   // HERO ANIMATION VARIANTS
   const heroVariants = {
@@ -143,43 +151,88 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center bg-white pt-44 pb-20 overflow-hidden">
-        <AnimatedBackground />
-        <div className="relative z-10 w-full flex flex-col items-center">
-          <motion.h1
-            className="font-satoshi text-6xl md:text-7xl tracking-tight text-gold drop-shadow-lg mb-2"
-            initial="hidden"
-            animate="visible"
-            variants={heroVariants}
-          >
-            AI Automation
-          </motion.h1>
-          <motion.h2
-            className="font-satoshi text-2xl md:text-3xl font-bold mb-6 text-black/90 tracking-tight"
-            initial="hidden"
-            animate="visible"
-            variants={heroSubVariants}
-          >
-            for Fast-Moving Businesses
-          </motion.h2>
-          <motion.p
-            className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-8 font-medium"
-            initial="hidden"
-            animate="visible"
-            variants={heroSubVariants}
-            transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-          >
-            We build custom AI-powered systems that help you grow revenue, reduce costs, and unlock operational scale.
-          </motion.p>
+      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center bg-white pt-32 pb-16 overflow-hidden">
+        {/* Cinematic Logo Intro Overlay (only over hero, not header) */}
+        {showIntro && (
           <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
+            initial={{ opacity: 1, backgroundColor: '#000' }}
+            animate={{ opacity: 1, backgroundColor: '#000' }}
+            exit={{ opacity: 0, backgroundColor: '#fff' }}
+            transition={{ duration: 0 }}
+            className="absolute inset-0 w-full h-full flex items-center justify-center z-20"
+            style={{ backgroundColor: '#000', top: 0, left: 0, right: 0, bottom: 0, marginTop: 0, marginLeft: 0 }}
           >
-            <ChevronDown className="w-10 h-10 text-gold animate-pulse drop-shadow-lg" />
+            <motion.img
+              src="/dse-logo.png"
+              alt="DSE Group Logo Intro"
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 0, scale: 2.2 }}
+              transition={{ delay: 1.6, duration: 1.6, ease: 'easeInOut' }}
+              className="w-[340px] md:w-[480px] h-auto"
+              style={{ filter: 'drop-shadow(0 4px 32px rgba(0,0,0,0.18))' }}
+            />
+            {/* White fade overlay for smooth transition to white */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.8, duration: 0.6, ease: 'easeInOut' }}
+              className="absolute inset-0 w-full h-full bg-white"
+              style={{ pointerEvents: 'none' }}
+            />
           </motion.div>
-        </div>
+        )}
+        {/* Hero Content Animation */}
+        {!showIntro && (
+          <div className="relative z-10 w-full flex flex-col items-center">
+            <div className="flex flex-col items-center w-full">
+              <div className="flex flex-row justify-center items-center w-full mb-8">
+                <motion.span
+                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold text-gold tracking-tight uppercase mr-8"
+                  initial={{ x: '-100vw', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
+                >
+                  AI
+                </motion.span>
+                <motion.span
+                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold text-gold tracking-tight uppercase ml-8"
+                  initial={{ x: '100vw', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
+                >
+                  AUTOMATION
+                </motion.span>
+              </div>
+              <motion.h2
+                className="font-satoshi text-4xl md:text-6xl font-bold mb-10 text-black/90 tracking-tight uppercase"
+                initial={{ y: 200, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 2.4, duration: 1.2, ease: 'easeOut' }}
+              >
+                FOR FAST-MOVING BUSINESSES
+              </motion.h2>
+              <motion.p
+                className="text-2xl md:text-3xl text-gray-800 max-w-4xl mx-auto font-medium mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 3.6, duration: 0.8, ease: 'easeOut' }}
+              >
+                We build custom AI-powered systems that grow revenue, reduce costs, and scale your business with precision.
+              </motion.p>
+              {/* Animated Down Arrow */}
+              <motion.a
+                href="#services"
+                className="block mt-12"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 4.6, duration: 1, ease: 'easeOut' }}
+                aria-label="Scroll to Services"
+              >
+                <ChevronDown className="w-12 h-12 text-gold animate-bounce drop-shadow-lg mx-auto cursor-pointer" />
+              </motion.a>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* SERVICES SECTION */}
@@ -434,9 +487,10 @@ export default function Home() {
                   <select
                     id="service"
                     required
+                    defaultValue=""
                     className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                   >
-                    <option value="" disabled selected>Select service</option>
+                    <option value="" disabled>Select service</option>
                     <option value="Identifying AI Opportunities">Identifying AI Opportunities</option>
                     <option value="Educating Your Team On AI">Educating Your Team On AI</option>
                     <option value="AI Automation Solutions For Your Business">AI Automation Solutions For Your Business</option>
