@@ -436,12 +436,12 @@ export default function Home() {
               </div>
             ) : (
               <form
+                action="https://formsubmit.co/dan@dsegroupae.com"
+                method="POST"
                 className="space-y-6"
-                onSubmit={e => {
-                  e.preventDefault();
-                  setFormSubmitted(true);
-                }}
               >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://www.dsegroup.ai/thank-you" />
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1">
                     <label htmlFor="name" className="block text-base font-bold text-black mb-2">What is your name?</label>
@@ -518,7 +518,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
