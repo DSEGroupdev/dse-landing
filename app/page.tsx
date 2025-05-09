@@ -125,7 +125,20 @@ export default function Home() {
           <a href="#home" className="flex items-center">
             <Image src="/dse-logo.png" alt="DSE Group Logo" width={110} height={70} className="h-14 w-auto" />
           </a>
-          <MobileNav open={navOpen} setOpen={setNavOpen} />
+          <div className="flex items-center gap-4">
+            <motion.a
+              href="#contact"
+              className="hidden md:inline-flex items-center gap-2 bg-black text-white font-extrabold rounded-lg px-5 py-2 text-base shadow-md border-2 border-gold hover:bg-white hover:text-black hover:shadow-gold/40 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-gold/60"
+              style={{ borderColor: '#D4AF37', boxShadow: '0 0 24px 0 #D4AF37, 0 0 0 2px #D4AF37' }}
+              initial={{ x: 80, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+            >
+              Get In Touch
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="ml-1"><path strokeLinecap="round" strokeLinejoin="round" d="M7 17l8-8m0 0H7m8 0v8"/></svg>
+            </motion.a>
+            <MobileNav open={navOpen} setOpen={setNavOpen} />
+          </div>
         </div>
       </header>
 
@@ -158,16 +171,6 @@ export default function Home() {
           >
             We build custom AI-powered systems that help you grow revenue, reduce costs, and unlock operational scale.
           </motion.p>
-          <motion.a
-            href="#contact"
-            className="inline-block bg-gold text-black font-extrabold rounded-xl px-8 py-4 text-lg md:text-xl shadow-xl hover:shadow-gold/40 hover:scale-105 transition-all focus:outline-none focus:ring-4 focus:ring-gold/60 mb-10 border-2 border-gold"
-            initial="hidden"
-            animate="visible"
-            variants={heroSubVariants}
-            transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
-          >
-            Get in Touch
-          </motion.a>
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, y: 30 }}
@@ -182,7 +185,33 @@ export default function Home() {
       {/* SERVICES SECTION */}
       <section id="services" className="py-28 bg-black border-t-2 border-gold">
         <div className="container mx-auto px-4">
-          <h2 className="font-satoshi text-2xl font-semibold text-white text-center mb-8">What We Offer</h2>
+          <div className="flex justify-center mb-12">
+            <motion.h2 className="flex gap-3 items-end text-center"
+              style={{ minHeight: '2.5em' }}
+            >
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ x: -60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >What</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ y: -60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >We</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ x: 60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Offer</motion.span>
+            </motion.h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               {
@@ -196,8 +225,9 @@ export default function Home() {
             ].map((s, i) => (
               <motion.div
                 key={s.title}
-                className="bg-[#111111] rounded-2xl p-6 border-[2.5px] border-gold flex flex-col items-center"
-                style={{ borderColor: '#D4AF37' }}
+                className="bg-[#111111] rounded-2xl p-6 border-4 border-gold flex flex-col items-center"
+                style={{ borderColor: '#D4AF37', boxShadow: '0 0 24px 0 #D4AF37, 0 0 0 2px #D4AF37' }}
+                whileHover={{ y: -8 }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
@@ -220,8 +250,33 @@ export default function Home() {
       {/* WHO WE HELP */}
       <section id="who-we-help" className="py-28 bg-white border-t-2 border-gold">
         <div className="container mx-auto px-4">
-          <h2 className="font-satoshi text-2xl md:text-4xl font-extrabold text-gold text-center mb-2 tracking-tight">Who We Help</h2>
-          <div className="w-16 h-1 bg-gold mx-auto mb-10 rounded-full" />
+          <div className="flex justify-center mb-12">
+            <motion.h2 className="flex gap-3 items-end text-center"
+              style={{ minHeight: '2.5em' }}
+            >
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-black"
+                initial={{ x: -60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Who</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-black"
+                initial={{ y: -60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >We</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-black"
+                initial={{ x: 60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Help</motion.span>
+            </motion.h2>
+          </div>
           <p className="text-lg md:text-2xl text-gray-700 text-center max-w-3xl mx-auto mb-16 font-medium">
             We partner with fast-moving businesses of all sizes — from lean teams to scaling enterprises — who are ready to win the next decade with AI.
           </p>
@@ -234,16 +289,15 @@ export default function Home() {
             ].map((ind, i) => (
               <motion.div
                 key={ind.label}
-                className="flex flex-col items-center"
+                className="flex flex-col items-center cursor-pointer transition-transform duration-300"
+                whileHover={{ y: -8 }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={whoVariants}
                 custom={i}
               >
-                <div className="w-14 h-14 flex items-center justify-center rounded-full border-2 border-gold bg-gold/10 mb-4 group-hover:bg-gold/20 transition-all" style={{ borderColor: '#D4AF37' }}>
-                  {React.cloneElement(ind.icon, { className: 'w-14 h-14 text-gold' })}
-                </div>
+                {React.cloneElement(ind.icon, { className: 'w-14 h-14 text-gold mb-2' })}
                 <span className="font-satoshi text-lg md:text-xl font-bold text-black mt-2 tracking-tight text-center">{ind.label}</span>
               </motion.div>
             ))}
@@ -254,9 +308,34 @@ export default function Home() {
       {/* WHY DSE GROUP */}
       <section id="why-dse" className="py-28 bg-black border-t-2 border-gold">
         <div className="container mx-auto px-4">
-          <h2 className="font-satoshi text-2xl md:text-4xl font-extrabold text-gold text-center mb-2 tracking-tight">Why DSE Group</h2>
-          <div className="w-16 h-1 bg-gold mx-auto mb-10 rounded-full" />
-          <div className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto justify-center">
+          <div className="flex justify-center mb-12">
+            <motion.h2 className="flex gap-3 items-end text-center"
+              style={{ minHeight: '2.5em' }}
+            >
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ x: -60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Why</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ y: -60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >DSE</motion.span>
+              <motion.span
+                className="font-satoshi text-3xl md:text-5xl font-extrabold text-white"
+                initial={{ x: 60, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Group</motion.span>
+            </motion.h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { icon: <Rocket className="w-10 h-10 text-gold" strokeWidth={2.5} />, title: "Built by Entrepreneurs", desc: "Our solutions are crafted by founders who understand the challenges of scaling a business." },
               { icon: <Wrench className="w-10 h-10 text-gold" strokeWidth={2.5} />, title: "Hands-on Implementation", desc: "We don't just consult — we roll up our sleeves and build alongside your team." },
@@ -264,17 +343,22 @@ export default function Home() {
             ].map((w, i) => (
               <motion.div
                 key={w.title}
-                className="flex-1 bg-black border-2 border-gold rounded-2xl px-8 py-10 flex flex-col items-center shadow-2xl hover:scale-105 hover:shadow-gold/40 transition-all"
-                style={{ borderColor: '#D4AF37' }}
+                className="bg-[#111111] rounded-2xl p-6 border-4 border-gold flex flex-col items-center shadow-[0_0_24px_0_#D4AF37,0_0_0_2px_#D4AF37] transition-transform duration-300 group"
+                style={{ borderColor: '#D4AF37', boxShadow: '0 0 24px 0 #D4AF37, 0 0 0 2px #D4AF37' }}
+                whileHover={{ y: -8 }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={whyVariants}
                 custom={i}
               >
-                {React.cloneElement(w.icon, { className: 'w-14 h-14 text-gold' })}
-                <h3 className="font-satoshi text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight text-center">{w.title}</h3>
-                <p className="text-white/80 text-lg md:text-xl font-medium text-center">{w.desc}</p>
+                {React.cloneElement(w.icon, {
+                  className: 'h-8 w-8 text-gold mb-4',
+                  style: { color: '#D4AF37' },
+                  stroke: 'currentColor',
+                })}
+                <h3 className="font-satoshi text-lg font-bold text-white text-center">{w.title}</h3>
+                <p className="font-inter text-sm text-gray-300 text-center">{w.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -305,23 +389,60 @@ export default function Home() {
                   setFormSubmitted(true);
                 }}
               >
-                <div>
-                  <label htmlFor="name" className="block text-base font-bold text-black mb-2">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
-                  />
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-1">
+                    <label htmlFor="name" className="block text-base font-bold text-black mb-2">What is your name?</label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label htmlFor="email" className="block text-base font-bold text-black mb-2">What is your email?</label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-1">
+                    <label htmlFor="companyName" className="block text-base font-bold text-black mb-2">Company Name</label>
+                    <input
+                      type="text"
+                      id="companyName"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label htmlFor="companyWebsite" className="block text-base font-bold text-black mb-2">Company Website</label>
+                    <input
+                      type="text"
+                      id="companyWebsite"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
+                    />
+                  </div>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-base font-bold text-black mb-2">Email</label>
-                  <input
-                    type="email"
-                    id="email"
+                  <label htmlFor="service" className="block text-base font-bold text-black mb-2">What services are you interested in?</label>
+                  <select
+                    id="service"
                     required
                     className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
-                  />
+                  >
+                    <option value="" disabled selected>Select service</option>
+                    <option value="Identifying AI Opportunities">Identifying AI Opportunities</option>
+                    <option value="Educating Your Team On AI">Educating Your Team On AI</option>
+                    <option value="AI Automation Solutions For Your Business">AI Automation Solutions For Your Business</option>
+                    <option value="Developing Custom AI Solutions">Developing Custom AI Solutions</option>
+                    <option value="AI Consultation Services">AI Consultation Services</option>
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-base font-bold text-black mb-2">Message</label>
@@ -334,21 +455,13 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gold text-black font-extrabold py-4 rounded-xl text-lg hover:shadow-gold/40 hover:scale-105 transition-all border-2 border-gold"
+                  className="w-full bg-gold text-black font-extrabold py-4 rounded-xl text-lg hover:shadow-gold/40 hover:scale-105 transition-all border-2 border-gold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Send Message
                 </button>
               </form>
             )}
           </motion.div>
-          <div className="flex justify-center mt-8">
-            <a
-              href="#contact"
-              className="inline-block bg-gold text-black font-extrabold rounded-xl px-8 py-4 text-lg md:text-xl shadow-xl hover:shadow-gold/40 hover:scale-105 transition-all focus:outline-none focus:ring-4 focus:ring-gold/60 border-2 border-gold"
-            >
-              Get Proposal
-            </a>
-          </div>
         </div>
       </section>
       <Footer />
