@@ -79,7 +79,8 @@ function MobileNav({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => 
 
 export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [loading, setLoading] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
 
   // Duration constants (sync with hero animation delays)
@@ -429,19 +430,52 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={contactVariants}
           >
-            {formSubmitted ? (
+            {formStatus === 'success' ? (
               <div className="text-center py-10">
                 <h3 className="text-xl font-bold text-gold mb-4">Thank You!</h3>
                 <p className="text-gray-700 text-base">We've received your message and will get back to you shortly.</p>
               </div>
+            ) : formStatus === 'error' ? (
+              <div className="text-center py-10">
+                <h3 className="text-xl font-bold text-red-600 mb-4">Something went wrong.</h3>
+                <p className="text-gray-700 text-base">Please try again or email us directly at dan@dsegroupae.com.</p>
+              </div>
             ) : (
               <form
-                action="https://formsubmit.co/02ea6ca655b5a9aed7dba4cb8cb14e53"
-                method="POST"
                 className="space-y-6"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  setLoading(true);
+                  setFormStatus('idle');
+                  const form = e.currentTarget;
+                  const formData = new FormData(form);
+                  const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    companyName: formData.get('companyName'),
+                    companyWebsite: formData.get('companyWebsite'),
+                    service: formData.get('service'),
+                    message: formData.get('message'),
+                  };
+                  try {
+                    const res = await fetch('/api/contact', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data),
+                    });
+                    if (res.ok) {
+                      setFormStatus('success');
+                      form.reset();
+                    } else {
+                      setFormStatus('error');
+                    }
+                  } catch {
+                    setFormStatus('error');
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
               >
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://www.dsegroup.ai/thank-you" />
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-1">
                     <label htmlFor="name" className="block text-base font-bold text-black mb-2">What is your name?</label>
@@ -510,8 +544,9 @@ export default function Home() {
                 <button
                   type="submit"
                   className="w-full bg-gold text-black font-extrabold py-4 rounded-xl text-lg hover:shadow-gold/40 hover:scale-105 transition-all border-2 border-gold disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}
