@@ -433,7 +433,13 @@ export default function Home() {
             {formStatus === 'success' ? (
               <div className="text-center py-10">
                 <h3 className="text-xl font-bold text-gold mb-4">Thank You!</h3>
-                <p className="text-gray-700 text-base">We've received your message and will get back to you shortly.</p>
+                <p className="text-gray-700 text-base mb-6">We've received your message and will get back to you shortly.</p>
+                <a
+                  href="#services"
+                  className="inline-block bg-gold text-black font-extrabold py-3 px-8 rounded-xl text-lg hover:shadow-gold/40 hover:scale-105 transition-all border-2 border-gold"
+                >
+                  See What We Offer
+                </a>
               </div>
             ) : formStatus === 'error' ? (
               <div className="text-center py-10">
@@ -512,10 +518,11 @@ export default function Home() {
                   <div className="flex-1">
                     <label htmlFor="companyWebsite" className="block text-base font-bold text-black mb-2">Company Website</label>
                     <input
-                      type="text"
+                      type="url"
                       id="companyWebsite"
                       name="companyWebsite"
                       required
+                      placeholder="https://yourcompany.com"
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
                   </div>
