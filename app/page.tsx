@@ -518,11 +518,10 @@ export default function Home() {
                   <div className="flex-1">
                     <label htmlFor="companyWebsite" className="block text-base font-bold text-black mb-2">Company Website</label>
                     <input
-                      type="url"
+                      type="text"
                       id="companyWebsite"
                       name="companyWebsite"
                       required
-                      placeholder="https://yourcompany.com"
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
                   </div>
