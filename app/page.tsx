@@ -482,6 +482,7 @@ export default function Home() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
@@ -491,6 +492,7 @@ export default function Home() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
@@ -502,6 +504,7 @@ export default function Home() {
                     <input
                       type="text"
                       id="companyName"
+                      name="companyName"
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
@@ -511,6 +514,7 @@ export default function Home() {
                     <input
                       type="text"
                       id="companyWebsite"
+                      name="companyWebsite"
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
                     />
@@ -520,6 +524,7 @@ export default function Home() {
                   <label htmlFor="service" className="block text-base font-bold text-black mb-2">What services are you interested in?</label>
                   <select
                     id="service"
+                    name="service"
                     required
                     defaultValue=""
                     className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
@@ -536,6 +541,7 @@ export default function Home() {
                   <label htmlFor="message" className="block text-base font-bold text-black mb-2">Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border-2 border-neutral-300 focus:border-gold focus:ring-2 focus:ring-gold font-medium text-base transition-all"
