@@ -11,7 +11,7 @@ import {
   BrainCircuit,
   GraduationCap,
   Cpu,
-  Building,
+  Building2,
   ShoppingBag,
   Banknote,
   Briefcase,
@@ -21,6 +21,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  Car,
 } from 'lucide-react';
 
 const navLinks = [
@@ -336,14 +337,14 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto">
             {[
-              { icon: <Building className="w-10 h-10 text-gold" strokeWidth={2.5} />, label: "Real Estate" },
-              { icon: <ShoppingBag className="w-10 h-10 text-gold" strokeWidth={2.5} />, label: "E-commerce" },
-              { icon: <Banknote className="w-10 h-10 text-gold" strokeWidth={2.5} />, label: "Finance" },
-              { icon: <Briefcase className="w-10 h-10 text-gold" strokeWidth={2.5} />, label: "Agencies" },
+              { icon: <Building2 className="h-12 w-12 text-gold hover:scale-105 transition-transform duration-300" />, label: "Real Estate" },
+              { icon: <ShoppingBag className="h-12 w-12 text-gold hover:scale-105 transition-transform duration-300" />, label: "E-commerce" },
+              { icon: <Banknote className="h-12 w-12 text-gold hover:scale-105 transition-transform duration-300" />, label: "Finance" },
+              { icon: <Car className="h-12 w-12 text-gold hover:scale-105 transition-transform duration-300" />, label: "Automotive" },
             ].map((ind, i) => (
               <motion.div
                 key={ind.label}
-                className="flex flex-col items-center cursor-pointer transition-transform duration-300"
+                className="flex flex-col items-center cursor-pointer"
                 whileHover={{ y: -8 }}
                 initial="hidden"
                 whileInView="visible"
@@ -351,7 +352,7 @@ export default function Home() {
                 variants={whoVariants}
                 custom={i}
               >
-                {React.cloneElement(ind.icon, { className: 'w-14 h-14 text-gold mb-2' })}
+                {ind.icon}
                 <span className="font-satoshi text-lg md:text-xl font-bold text-black mt-2 tracking-tight text-center">{ind.label}</span>
               </motion.div>
             ))}
