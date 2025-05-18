@@ -187,22 +187,24 @@ export default function Home() {
         {!showIntro && (
           <div className="relative z-10 w-full flex flex-col items-center">
             <div className="flex flex-col items-center w-full">
-              <div className="flex flex-row justify-center items-center w-full mb-8">
+              <div className="flex flex-col md:flex-row justify-center items-center w-full mb-8">
                 <motion.span
-                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold text-gold tracking-tight uppercase mr-8"
+                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold tracking-tight uppercase md:mr-8 mb-2 md:mb-0 relative premium-hero-text"
                   initial={{ x: '-100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
                 >
-                  AI
+                  <span className="premium-text-gradient">AI</span>
+                  <span className="premium-text-glass" />
                 </motion.span>
                 <motion.span
-                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold text-gold tracking-tight uppercase ml-8"
+                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold tracking-tight uppercase md:ml-8 relative premium-hero-text"
                   initial={{ x: '100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
                 >
-                  AUTOMATION
+                  <span className="premium-text-gradient">AUTOMATION</span>
+                  <span className="premium-text-glass" />
                 </motion.span>
               </div>
               <motion.h2
