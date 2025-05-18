@@ -189,7 +189,7 @@ export default function Home() {
             <div className="flex flex-col items-center w-full">
               <div className="flex flex-col md:flex-row justify-center items-center w-full mb-8 max-w-xs sm:max-w-sm md:max-w-full mx-auto">
                 <motion.span
-                  className="font-satoshi text-4xl sm:text-5xl md:text-[8vw] font-extrabold tracking-tight uppercase md:mr-8 mb-2 md:mb-0 relative premium-hero-text leading-tight"
+                  className="font-satoshi text-6xl sm:text-7xl md:text-[8vw] font-extrabold tracking-tight uppercase md:mr-8 mb-2 md:mb-0 relative premium-hero-text leading-tight"
                   initial={{ x: '-100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
@@ -198,7 +198,7 @@ export default function Home() {
                   <span className="premium-text-glass" />
                 </motion.span>
                 <motion.span
-                  className="font-satoshi text-4xl sm:text-5xl md:text-[8vw] font-extrabold tracking-tight uppercase md:ml-8 relative premium-hero-text leading-tight"
+                  className="font-satoshi text-6xl sm:text-7xl md:text-[8vw] font-extrabold tracking-tight uppercase md:ml-8 relative premium-hero-text leading-tight"
                   initial={{ x: '100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
