@@ -208,7 +208,7 @@ export default function Home() {
                 </motion.span>
               </div>
               <motion.h2
-                className="font-satoshi text-xl sm:text-2xl md:text-6xl font-bold mb-10 tracking-tight uppercase relative premium-hero-text"
+                className="font-satoshi text-2xl sm:text-3xl md:text-6xl font-bold mb-10 tracking-tight uppercase relative premium-hero-text"
                 initial={{ y: 200, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 2.4, duration: 1.2, ease: 'easeOut' }}
@@ -217,7 +217,7 @@ export default function Home() {
                 <span className="premium-text-glass" />
               </motion.h2>
               <motion.p
-                className="text-2xl md:text-3xl text-gray-800 max-w-4xl mx-auto font-medium mt-4"
+                className="text-base sm:text-lg md:text-3xl text-gray-800 max-w-4xl mx-auto font-medium mt-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3.6, duration: 0.8, ease: 'easeOut' }}
