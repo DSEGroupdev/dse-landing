@@ -153,7 +153,7 @@ export default function Home() {
       </header>
 
       {/* HERO SECTION */}
-      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center bg-white pt-32 pb-16 overflow-hidden">
+      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center text-center bg-white pt-32 pb-16 overflow-hidden mt-10 md:mt-0">
         {/* Cinematic Logo Intro Overlay (only over hero, not header) */}
         {showIntro && (
           <motion.div
@@ -189,7 +189,7 @@ export default function Home() {
             <div className="flex flex-col items-center w-full">
               <div className="flex flex-col md:flex-row justify-center items-center w-full mb-8">
                 <motion.span
-                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold tracking-tight uppercase md:mr-8 mb-2 md:mb-0 relative premium-hero-text"
+                  className="font-satoshi text-5xl md:text-[8vw] font-extrabold tracking-tight uppercase md:mr-8 mb-2 md:mb-0 relative premium-hero-text"
                   initial={{ x: '-100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
@@ -198,7 +198,7 @@ export default function Home() {
                   <span className="premium-text-glass" />
                 </motion.span>
                 <motion.span
-                  className="font-satoshi text-8xl md:text-[8vw] font-extrabold tracking-tight uppercase md:ml-8 relative premium-hero-text"
+                  className="font-satoshi text-5xl md:text-[8vw] font-extrabold tracking-tight uppercase md:ml-8 relative premium-hero-text"
                   initial={{ x: '100vw', opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 2.2, ease: 'easeOut' }}
