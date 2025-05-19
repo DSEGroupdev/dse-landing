@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+
+# Host
+Host: https://www.dsegroup.ai
+
+# Sitemaps
+Sitemap: https://www.dsegroup.ai/sitemap.xml
